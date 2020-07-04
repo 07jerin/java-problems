@@ -20,8 +20,8 @@ import java.util.stream.Collectors;
 public class BiggestCombinationNumber {
 
 	public static void main(String[] args) {
-		Integer[] numbers = { 54, 546, 548, 60 };
-		System.out.println(BiggestCombinationNumber.getHighestNumber(numbers));
+		Integer[] numbers = {54, 546, 548, 60};
+		BiggestCombinationNumber.getHighestNumber(numbers);
 	}
 
 	private static int customCompare(String fStr, String sStr) {
@@ -45,7 +45,7 @@ public class BiggestCombinationNumber {
 
 	public static Double getHighestNumber(Integer[] number) {
 
-		Comparator<Integer> c = (Integer first, Integer second) -> {
+		Comparator<Integer> complex = (Integer first, Integer second) -> {
 			int val = 0;
 			if (!first.equals(second)) {
 				String fStr = first.toString();
@@ -55,10 +55,23 @@ public class BiggestCombinationNumber {
 			return val;
 
 		};
+		
+		Comparator<Integer> simpleComparator = (Integer first, Integer second) -> {
+			int val = 0;
+			if (!first.equals(second)) {
+				String fStr = first.toString();
+				String sStr = second.toString();
+				String firstSecond = fStr + sStr;
+				String secondFirst = sStr + fStr;
+				return secondFirst.compareTo(firstSecond);
+			}
+			return val;
+
+		};
 
 		List<Integer> strs = Arrays.asList(number);
-		Collections.sort(strs, c);
-		System.out.println(strs.stream().map(Object::toString).collect(Collectors.joining("m")));
+		Collections.sort(strs, simpleComparator);
+		System.out.println(strs.stream().map(Object::toString).collect(Collectors.joining("")));
 
 		return 0d;
 

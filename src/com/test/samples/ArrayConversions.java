@@ -19,7 +19,7 @@ public class ArrayConversions {
 		List<Integer> list = Arrays.stream(vals).boxed().collect(Collectors.toList());
 		System.out.println(list);
 		
-		//create Arraylist with default values
+		//create List with default values
 		List<Integer> def = Arrays.asList(1,2);
 
 		// List to int []

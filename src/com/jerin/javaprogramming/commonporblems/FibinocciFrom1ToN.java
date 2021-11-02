@@ -1,7 +1,6 @@
 package com.jerin.javaprogramming.commonporblems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,6 +9,7 @@ public class FibinocciFrom1ToN {
 
 	@Test
 	public void testFibSeries() {
+		
 		long ts = System.nanoTime();
 		fib(1);
 		fib(2);
